@@ -40,8 +40,6 @@ def task_2_list_all_customers(cur) -> list:
     return cur.fetchall()
 
 
-
-
 def task_3_list_customers_in_germany(cur) -> list:
     """
     List the customers in Germany
@@ -59,7 +57,7 @@ def task_4_update_customer(con):
     """
     Update first customer's name (Set customername equal to  'Johnny Depp')
     Args:
-        cur: psycopg cursor
+        con: psycopg cursor
 
     Returns: 91 records with updated customer
 
@@ -67,8 +65,6 @@ def task_4_update_customer(con):
     with con.cursor() as cursor:
         cursor.execute("""UPDATE customers SET customername='Johnny Depp' 
         WHERE customerid=(SELECT MIN(customerid) FROM customers);""")
-
-
 
 
 def task_5_delete_the_last_customer(con) -> None:
@@ -108,6 +104,7 @@ def task_7_list_supplier_countries_in_desc_order(cur) -> list:
     """
     cur.execute("SELECT country FROM suppliers ORDER BY country DESC;")
     return cur.fetchall()
+
 
 def task_8_count_customers_by_city(cur):
     """
@@ -198,6 +195,7 @@ def task_13_list_products_from_sweden_suppliers(cur):
     ON  p.supplierid = s.supplierid
     WHERE country = 'Sweden';""")
     return cur.fetchall()
+
 
 def task_14_list_products_with_supplier_information(cur):
     """
