@@ -71,7 +71,6 @@ http://www.postgresqltutorial.com/psql-commands/
 
 If you could connect to database with this command
 ```
-psql -h localhost -d cursor_db -U cursor -p 5433
 
 ```
 
