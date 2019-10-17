@@ -1,6 +1,6 @@
 import json
-import os
 import unittest
+import os
 
 import psycopg2
 from psycopg2.extras import RealDictCursor
@@ -91,7 +91,7 @@ class TestSQLQueries(unittest.TestCase):
         cls.drop_test_database_and_role(root_conn)
         root_conn.close()
 
-    def test_task_1(self):
+    def test_task_01(self):
         with self.conn.cursor(cursor_factory=RealDictCursor) as cursor:
             task_1_add_new_record_to_db(self.conn)
             cursor.execute("SELECT * from customers;")
@@ -100,7 +100,7 @@ class TestSQLQueries(unittest.TestCase):
         for i, row in enumerate(actual_result):
             self.assertDictEqual(row, expected_result[i])
 
-    def test_task_2(self):
+    def test_task_02(self):
         with self.conn.cursor(cursor_factory=RealDictCursor) as cursor:
             actual_result = task_2_list_all_customers(cursor)
             actual_result = [dict(record) for record in actual_result]
@@ -109,7 +109,7 @@ class TestSQLQueries(unittest.TestCase):
         for i, row in enumerate(actual_result):
             self.assertDictEqual(row, expected_result[i])
 
-    def test_task_3(self):
+    def test_task_03(self):
         with self.conn.cursor(cursor_factory=RealDictCursor) as cursor:
             actual_result = task_3_list_customers_in_germany(cursor)
             actual_result = [dict(record) for record in actual_result]
@@ -118,7 +118,7 @@ class TestSQLQueries(unittest.TestCase):
         for i, row in enumerate(actual_result):
             self.assertDictEqual(row, expected_result[i])
 
-    def test_task_4(self):
+    def test_task_04(self):
         with self.conn.cursor(cursor_factory=RealDictCursor) as cursor:
             task_4_update_customer(self.conn)
             cursor.execute("SELECT * from customers;")
@@ -129,7 +129,7 @@ class TestSQLQueries(unittest.TestCase):
 
         self.conn.commit()
 
-    def test_task_5(self):
+    def test_task_05(self):
         with self.conn.cursor(cursor_factory=RealDictCursor) as cursor:
             task_5_delete_the_last_customer(self.conn)
             cursor.execute("SELECT * from customers;")
@@ -140,7 +140,7 @@ class TestSQLQueries(unittest.TestCase):
 
         self.conn.commit()
 
-    def test_task_6(self):
+    def test_task_06(self):
         with self.conn.cursor(cursor_factory=RealDictCursor) as cursor:
             actual_result = task_6_list_all_supplier_countries(cursor)
             actual_result = [dict(record) for record in actual_result]
@@ -149,7 +149,7 @@ class TestSQLQueries(unittest.TestCase):
         for i, row in enumerate(actual_result):
             self.assertDictEqual(row, expected_result[i])
 
-    def test_task_7(self):
+    def test_task_07(self):
         with self.conn.cursor(cursor_factory=RealDictCursor) as cursor:
             actual_result = task_7_list_supplier_countries_in_desc_order(cursor)
             actual_result = [dict(record) for record in actual_result]
@@ -158,16 +158,17 @@ class TestSQLQueries(unittest.TestCase):
         for i, row in enumerate(actual_result):
             self.assertDictEqual(row, expected_result[i])
 
-    def test_task_8(self):
+    def test_task_08(self):
         with self.conn.cursor(cursor_factory=RealDictCursor) as cursor:
             actual_result = task_8_count_customers_by_city(cursor)
             actual_result = [dict(record) for record in actual_result]
             expected_result = self.load_rows_from_file("task_8.json")
 
-        for i, row in enumerate(actual_result):
-            self.assertDictEqual(row, expected_result[i])
+        self.assertCountEqual(actual_result, expected_result)
+        # for i, row in enumerate(actual_result):
+        #     self.assertDictEqual(row, expected_result[i])
 
-    def test_task_9(self):
+    def test_task_09(self):
         with self.conn.cursor(cursor_factory=RealDictCursor) as cursor:
             actual_result = task_9_count_customers_by_country_with_than_10_customers(cursor)
             actual_result = [dict(record) for record in actual_result]
