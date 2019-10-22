@@ -42,7 +42,6 @@ def task_3_find_item_via_value(data: DT, value) -> DT:
     return [i for i in data if value in i.values()]
 
 
-
 def task_4_min_value_integers(data: List[int]) -> int:
     """
     Find and return minimum value from list
@@ -66,7 +65,6 @@ def task_6_min_value_list_of_dicts(data: DT, key: str) -> ST:
     """
     Find minimum value by given key
     Returns:
-
     """
     min_value = data[0]
     for i in data:
