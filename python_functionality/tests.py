@@ -72,7 +72,6 @@ class MinTestCases(unittest.TestCase):
         ]
         self.assertDictEqual(task_6_min_value_list_of_dicts(data=members, key='age'), members[2])
 
-
 class SumTestCases(unittest.TestCase):
 
     def test_task_8_valid_values(self):
