@@ -9,7 +9,6 @@ DT = List[ST]
 def task_1_fix_names_start_letter(data: DT) -> DT:
     """
     Make all `names` field in list of students to start from upper letter
-
     Examples:
         fix_names_start_letters([{'name': 'Alex', 'age': 26}, {'name': 'denys', 'age': 89}])
         >>> [{'name': 'Alex', 'age': 26}, {'name': 'Denys', 'age': 89}]
@@ -23,7 +22,6 @@ def task_1_fix_names_start_letter(data: DT) -> DT:
 def task_2_remove_dict_fields(data: DT, redundant_keys: List[str]) -> DT:
     """given_data
     Remove from dictionaries given key value
-
     Examples:
        remove_dict_field([{'name': 'Alex', 'age': 26}, {'name': 'denys', 'age': 89}], 'age')
         >>> [{'name': 'Alex'}, {'name': 'denys'}]
