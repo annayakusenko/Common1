@@ -2,7 +2,6 @@ import unittest
 from tests.homework import *
 
 
-
 class TestRectangle(unittest.TestCase):
     def test_rectangle_perimeter_int(self):
         test_obj = Rectangle(4, 6)
