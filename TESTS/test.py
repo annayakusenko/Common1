@@ -1,5 +1,5 @@
 import unittest
-from tests.homework import *
+from homework import *
 
 
 class TestRectangle(unittest.TestCase):
