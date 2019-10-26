@@ -12,6 +12,10 @@ class Rectangle:
         :return: number
         """
         perimeter = (self.width + self.height) * 2
+        if self.width == 0:
+            raise ValueError("Can not be 0")
+        elif self.height == 0:
+            raise ValueError("Can not be 0")
         return perimeter
 
     def get_rectangle_square(self):
@@ -20,7 +24,12 @@ class Rectangle:
         :return: number
         """
         square = self.width * self.height
+        if self.width == 0:
+            raise ValueError("Can not be 0")
+        elif self.height == 0:
+            raise ValueError("Can not be 0")
         return square
+
 
     def get_sum_of_corners(self, number_of_corners):
         """
@@ -72,3 +81,4 @@ class Rectangle:
         diagonal = self.get_rectangle_diagonal()
         radius = diagonal / 2 * math.sqrt(2)
         return radius
+
