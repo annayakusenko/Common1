@@ -51,10 +51,12 @@ class TestRectangle(unittest.TestCase):
         test_obj = Rectangle(3, 7)
         self.assertAlmostEqual(test_obj.get_rectangle_diagonal(), 7.62, 2)
 
+
     def test_rectangle_diagonal_incorrect_data(self):
         test_obj = Rectangle(3, "7")
         with self.assertRaises(TypeError):
             test_obj.get_rectangle_diagonal()
+
 
     def test_radius_of_circumscribed_circle(self):
         test_obj = Rectangle(3, 7)
