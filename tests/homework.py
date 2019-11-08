@@ -70,14 +70,12 @@ class Rectangle:
     def get_radius_of_inscribed_circle(self):
         """
         Get radius of inscribed circle in rectangle
-        due to the formula:      d
-                              -------
-                                 2
-        where d is diagonal of the rectangle
+        due to the formula: width / 2
         :return:
         """
         if self.width != self.height:
             raise ValueError("Can't inscribed circle in rectangle with such width and height")
-        radius = diagonal / 2
+        diagonal = self.get_rectangle_diagonal()
+        radius = self.width / 2
         return radius
 

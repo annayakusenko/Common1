@@ -65,6 +65,10 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(TypeError):
             test_obj.get_radius_of_circumscribed_circle()
 
+    def test_radius_of_inscribed_circle(self):
+        test_obj = Rectangle(2, 2)
+        self.assertEqual(test_obj.get_radius_of_inscribed_circle(), 1)
+
     def test_radius_of_inscribed_circle_incorrect_data(self):
         test_obj = Rectangle(2, 3)
         with self.assertRaises(ValueError):
